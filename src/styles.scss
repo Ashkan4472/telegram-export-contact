@@ -7,3 +7,12 @@ body {
   height: 100%;
   background-color: $primary-background;
 }
+
+@font-face {
+  font-family: "OpenSans-Regular";
+  src: url('./fonts/OpenSans-Regular.ttf') format('truetype');;
+}
+
+* {
+  font-family: 'OpenSans-Refular';
+}
