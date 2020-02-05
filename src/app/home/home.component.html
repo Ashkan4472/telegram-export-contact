@@ -1,1 +1,8 @@
-<p>works</p>
+<div class="uk-position-center">
+  <div>
+    <button class="uk-button btn js-upload" title="Upload File" uk-form-custom>
+      <span uk-icon="icon: cloud-upload; ratio: 2"></span>
+      <input type="file" (change)="fileUpload($event.target.files)">
+    </button>
+  </div>
+</div>
