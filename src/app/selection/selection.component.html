@@ -7,9 +7,9 @@
   </div>
 </nav>
 
-<div class="contact-container uk-margin-small-top">
-  <app-contact-item></app-contact-item>
-  <app-contact-item></app-contact-item>
-  <app-contact-item></app-contact-item>
-  <app-contact-item></app-contact-item>
+<div *ngIf="contactList && contactList.length > 0" class="contact-container uk-margin-small-top">
+  <ng-container *ngFor="let contact of contactList">
+    <app-contact-item [firstName]="contact.firstName" [lastName]="contact.lastName" [phoneNumber]="contact.phoneNumber">
+    </app-contact-item>
+  </ng-container>
 </div>

@@ -1,13 +1,13 @@
 <div class="uk-grid-collapse" uk-grid>
   <div class="uk-width-2-5">
-    <p>sina poyanfar</p>
+    <p>{{firstName + " " + lastName}}</p>
   </div>
   <div class="uk-width-2-5">
-    <p>+989391333883</p>
+    <p>{{phoneNumber}}</p>
   </div>
   <div class="uk-width-1-5">
     <div class="uk-align-right delete-button-container">
-      <a class="uk-icon-button delete-button" uk-icon="trash"></a>
+      <a class="uk-icon-button delete-button" uk-icon="trash" (click)="deleteContact()"></a>
     </div>
   </div>
 </div>
