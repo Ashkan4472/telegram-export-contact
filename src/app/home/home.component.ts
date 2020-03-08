@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NotificationService } from '../core/services/notification.service';
 import { ContactModel } from '../models/contact.model';
 import { Router } from '@angular/router';
+import { ContactService } from '../core/services/contact.service';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private readonly notificationService: NotificationService,
+    private readonly contactService: ContactService,
     private readonly router: Router,
   ) { }
 
@@ -30,6 +32,8 @@ export class HomeComponent implements OnInit {
         reader.onloadend = (e) => {
           const contactJson = JSON.parse(reader.result as string);
           if (contactJson && contactJson.contacts && contactJson.contacts.list) {
+            const contactsList = contactJson.contacts.list.map(c => ContactModel.contactDTO(c));
+            this.contactService.changeContact(contactsList);
             this.router.navigateByUrl('/selection');
             // TODO: need to move in separate component
             // for (const c of contactJson.contacts.list) {
