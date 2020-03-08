@@ -1,39 +1,23 @@
 @import '../../scss/variable.scss';
-
-.navigation {
-  padding-top: 20px;
-  width: 100%;
-  height: 76px;
-  background-color: $primary-text;
+.uk-navbar-container {
+  background-color: transparent;
 }
 
-.contactContainer {
+.contact-container {
   margin-left: 10%;
   margin-right: 10%;
 }
 
-.Button {
-  padding: 0;
-  width: 50px;
-  height: 50px;
-  border: 2px solid $secondary-background;
-  background-color: $primary-background;
-  border-radius: 50%;
-  color: $primary-text;
-  text-align: center;
+.navbar-btn {
+  border: 2px solid $primary-text;
+  background-color: $primary-text;
+  border-radius: 100%;
+  color: $primary-background;
+  padding: 12px;
+  transition: all ease-in-out 0.2s;
+  &:hover {
+    background-color: $primary-background;
+    color: $primary-text;
+  }
 }
 
-.backButton {
-  margin-left: 5%;
-}
-
-.saveButton {
-  float: right;
-  position: absolute;
-}
-
-.rightButton {
-  float: right;
-  margin-right: 5%;
-  direction: rtl;
-}
