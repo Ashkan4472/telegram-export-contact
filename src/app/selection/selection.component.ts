@@ -28,4 +28,9 @@ export class SelectionComponent implements OnInit, OnDestroy {
       s.unsubscribe();
     });
   }
+
+  deleteContact(index: number) {
+    this.contactList.splice(index, 1);
+
+  }
 }

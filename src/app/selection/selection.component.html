@@ -8,8 +8,8 @@
 </nav>
 
 <div *ngIf="contactList && contactList.length > 0" class="contact-container uk-margin-small-top">
-  <ng-container *ngFor="let contact of contactList">
-    <app-contact-item [firstName]="contact.firstName" [lastName]="contact.lastName" [phoneNumber]="contact.phoneNumber">
+  <ng-container *ngFor="let contact of contactList; let i = index">
+    <app-contact-item [firstName]="contact.firstName" [lastName]="contact.lastName" [phoneNumber]="contact.phoneNumber" [index]="i" (deleteEvent)="deleteContact($event)">
     </app-contact-item>
   </ng-container>
 </div>

@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { NotificationService } from 'src/app/core/services/notification.service';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-contact-item' ,
@@ -10,12 +9,12 @@ export class ContactItemComponent {
   @Input() firstName: string;
   @Input() lastName: string;
   @Input() phoneNumber: string;
+  @Input() index: number;
+  @Output() deleteEvent = new EventEmitter();
 
-  constructor(
-    private readonly notificationService: NotificationService,
-  ) {}
+  constructor() {}
 
-  deleteContact() {
-    this.notificationService.warning('this feature will available later');
+  onDeleteEvent() {
+    this.deleteEvent.emit(this.index);
   }
 }
