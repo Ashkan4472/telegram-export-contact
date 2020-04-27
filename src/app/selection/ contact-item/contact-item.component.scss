@@ -10,6 +10,10 @@
     border-radius: 100%;
     color: #ff0000;
     background-color: transparent;
+    &:hover{
+      background-color: #ff0000;
+      color: #ffffff;
+    }
   }
 }
 
