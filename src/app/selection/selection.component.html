@@ -9,7 +9,20 @@
 
 <div *ngIf="contactList && contactList.length > 0" class="contact-container uk-margin-small-top">
   <ng-container *ngFor="let contact of contactList; let i = index">
-    <app-contact-item [firstName]="contact.firstName" [lastName]="contact.lastName" [phoneNumber]="contact.phoneNumber" [index]="i" (deleteEvent)="deleteContact($event)">
+    <app-contact-item [firstName]="contact.firstName" [lastName]="contact.lastName" [phoneNumber]="contact.phoneNumber" [index]="i" (deleteEvent)="setRemoveIndex($event)">
     </app-contact-item>
   </ng-container>
+</div>
+
+
+<div id="removeContactModal" class="uk-modal" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title modal-header">Warning!</h2>
+        <p>do you want to delete this contact of your list? you cannot undo this action.</p>
+        <div class="uk-flex uk-flex-center">
+            <button class="uk-button modal-btn uk-button-default  uk-modal-close" type="button">Cancel</button>
+            <button class="uk-button modal-btn modal-yes-button  uk-margin-left uk-modal-close" type="button" (click)="deleteContact(true)">Yes</button>
+            <button class="uk-button modal-btn modal-dont-show uk-margin-left uk-modal-close" type="button" (click)="deleteContact(false)">Yes & don't show again!</button>
+        </div>
+    </div>
 </div>
