@@ -35,20 +35,6 @@ export class HomeComponent implements OnInit {
             const contactsList = contactJson.contacts.list.map(c => ContactModel.contactDTO(c));
             this.contactService.changeContact(contactsList);
             this.router.navigateByUrl('/selection');
-            // TODO: need to move in separate component
-            // for (const c of contactJson.contacts.list) {
-            //   if (c.phone_number) {
-            //     this.textVcf += ContactModel.getVcfText(c.first_name, c.last_name, c.phone_number);
-            //   }
-            // }
-            // const blob = new Blob([this.textVcf], {
-            //   type: 'text/vcard',
-            // });
-            // const blobUrl = window.URL.createObjectURL(blob);
-            // const anchor = document.createElement('a');
-            // anchor.download = 'output.vcf';
-            // anchor.href = blobUrl;
-            // anchor.click();
           } else {
             this.notificationService.danger('your file does not have contact in it!');
           }

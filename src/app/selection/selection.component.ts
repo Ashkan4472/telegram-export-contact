@@ -44,4 +44,21 @@ export class SelectionComponent implements OnInit, OnDestroy {
     this.contactList.splice(this.indexA, 1);
     this.showModal = showAgain;
   }
+
+  downloadContact() {
+    let textVcf: string = '';
+    for (const contact of this.contactList) {
+      if (contact.phoneNumber) {
+        textVcf += ContactModel.getVcfText(contact.firstName, contact.lastName, contact.phoneNumber);
+      }
+    }
+    const blob = new Blob([textVcf], {
+      type: 'text/vcard',
+    });
+    const blobUrl = window.URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.download = 'output.vcf';
+    anchor.href = blobUrl;
+    anchor.click();
+  }
 }
