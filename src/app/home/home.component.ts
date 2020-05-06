@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NotificationService } from '../core/services/notification.service';
 import { ContactModel } from '../models/contact.model';
+import { Router } from '@angular/router';
+import { ContactService } from '../core/services/contact.service';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +15,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private readonly notificationService: NotificationService,
+    private readonly contactService: ContactService,
+    private readonly router: Router,
   ) { }
 
   ngOnInit() {
@@ -26,21 +30,11 @@ export class HomeComponent implements OnInit {
       } else {
         const reader = new FileReader();
         reader.onloadend = (e) => {
-          const tmp = JSON.parse(reader.result as string);
-          if (tmp && tmp.contacts && tmp.contacts.list) {
-            for (const c of tmp.contacts.list) {
-              if (c.phone_number) {
-                this.textVcf += ContactModel.getVcfText(c.first_name, c.last_name, c.phone_number);
-              }
-            }
-            const blob = new Blob([this.textVcf], {
-              type: 'text/vcard',
-            });
-            const blobUrl = window.URL.createObjectURL(blob);
-            const anchor = document.createElement('a');
-            anchor.download = 'output.vcf';
-            anchor.href = blobUrl;
-            anchor.click();
+          const contactJson = JSON.parse(reader.result as string);
+          if (contactJson && contactJson.contacts && contactJson.contacts.list) {
+            const contactsList = contactJson.contacts.list.map(c => ContactModel.contactDTO(c));
+            this.contactService.changeContact(contactsList);
+            this.router.navigateByUrl('/selection');
           } else {
             this.notificationService.danger('your file does not have contact in it!');
           }

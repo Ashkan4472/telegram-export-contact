@@ -1,0 +1,19 @@
+.card-container {
+  padding: 15px;
+  box-shadow: 0 5px 15px #e6e6e6;
+  transition: all ease-in-out 0.2s;
+  &:hover {
+    box-shadow: 0 5px 15px #b1b1b1;
+  }
+  .delete-button {
+    border: 2px solid red;
+    border-radius: 100%;
+    color: #ff0000;
+    background-color: transparent;
+    &:hover{
+      background-color: #ff0000;
+      color: #ffffff;
+    }
+  }
+}
+

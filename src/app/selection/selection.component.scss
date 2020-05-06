@@ -1,0 +1,50 @@
+@import '../../scss/variable.scss';
+.uk-navbar-container {
+  background-color: transparent;
+}
+
+.contact-container {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.navbar-btn {
+  border: 2px solid $primary-text;
+  background-color: $primary-text;
+  border-radius: 100%;
+  color: $primary-background;
+  padding: 12px;
+  transition: all ease-in-out 0.2s;
+&:hover {
+    background-color: $primary-background;
+    color: $primary-text;
+  }
+}
+
+.modal-header {
+  color: #FF0000;
+}
+
+.modal-btn {
+  border-radius: 4px;
+  &:hover {
+    transition: all ease 0.3s;
+    transform: scale(1.1);
+  }
+}
+
+.modal-yes-button {
+  background-color: $primary-text;
+  color:#ffffff;
+  &:hover {
+    background-color: $secondary-text;
+  }
+}
+
+.modal-dont-show {
+  background-color: #87CEFA;
+  color:#ffffff;
+&:hover {
+  background-color: #4BAAE9;
+  }
+}
