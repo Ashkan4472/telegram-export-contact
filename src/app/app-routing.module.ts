@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { SelectionComponent } from './selection/selection.component';
-
+import { SelectionGuard } from './core/guard/selection.guard';
 
 const routes: Routes = [
   {
@@ -11,7 +11,8 @@ const routes: Routes = [
   },
   {
     path: 'selection',
-    component: SelectionComponent
+    component: SelectionComponent,
+    canActivate: [SelectionGuard],
   }
 ];
 
