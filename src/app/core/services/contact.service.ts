@@ -13,4 +13,8 @@ export class ContactService {
   getContactObservable(): Observable<ContactModel[]> {
     return this.contactSubject.asObservable();
   }
+
+  getCurrent(): ContactModel[] {
+    return this.contactSubject.getValue();
+  }
 }
